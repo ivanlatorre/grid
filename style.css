@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@100&display=swap');
+*
+{
+ box-sizing: border-box;
+ margin: 0;
+ padding: 0;
+background-color: blueviolet;
+}
+html
+{
+    height: 100%;
+}
+body
+{
+    font-family:"Public Sans",sans-serif ;
+    font-size: 1.2rem;
+    min-height: 100%;
+
+}
+.grid-container > *
+{
+    box-shadow: -1px 1px 7px 0px rgba(0, 0, 0, 0.75);
+    border-radius: 4px;
+    padding: 10px;
+    text-align: center;
+}
+.header
+{
+    grid-area: header;/*nombre en gri-container*/
+    background-color: #85aedd;
+}
+.navbar
+{
+    grid-area: navbar;/*nombre en gri-container*/
+    background-color: #afd6af;
+}
+.sidebar
+{
+    grid-area: sidebar;/*nombre en gri-container*/
+    background-color: #fdcfcf;
+}
+.main
+{
+    grid-area: main;/*nombre en gri-container*/
+    background-color: #ecf8a6;
+}
+footer
+{
+    grid-area: footer;/*nombre en gri-container*/
+    background-color: #8c96a0;
+}
+
+.grid-container
+{
+    display: grid;
+    gap:10px;
+    grid-template:
+       "header"  100px     /* medidas solo en el grid- template*/
+       "navbar"  50px /* altos*/
+       "main"    auto          /*se puede cambiar las posiciones desde aca*/
+       "sidebar" 100px
+       "footer"  100px;            /*pueden ser cualquier nombre*/
+}
+@media(min-width:600px)
+{
+    .grid-container
+    {/* firma de ordenar las grid template areas*/
+       /* grid-template-columns: 200px auto;
+        grid-template-rows: 100px 50px auto 100px;/*por filas*/
+        /*grid-template-areas:
+       "header  header"
+       "navbar  navbar"
+       "sidebar main"
+       "footer  footer";  atajo de abajo  */ 
+    grid-template: 
+       "header  header" 100px /* . para eliminar fila*/
+       "navbar  navbar" 50px
+       "sidebar main"   auto
+       "footer  footer" 100px /* colocar / *// /* los mismo q en linea 68*/
+        200px    auto;
+    }
+}
+@media(min-width:900px)/*modo deskop */
+{
+    .grid-container
+    {
+    grid-template: /*areas rectangulares*/
+       "header  header  header"  100px 
+       "navbar  main    sidebar" auto
+       "footer  footer  footer"  100px /
+        200px    auto    200px;
+    }
+}
